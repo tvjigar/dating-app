@@ -1,0 +1,19 @@
+# Editor configs
+.idea
+
+# Dependencies
+node_modules
+package-lock.json
+
+src/uploads
+src/uploads/profile_photo
+
+# Build folder
+build
+
+# Logs folder
+logs
+
+# Environment variables
+.env*
+!.env*.example
