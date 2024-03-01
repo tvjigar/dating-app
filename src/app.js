@@ -4,7 +4,6 @@ import cors from 'cors';
 import passport from 'passport';
 import { UserRouter } from './features/user/index.js';
 import { AuthRouter, PassportJwtStrategy } from './features/auth/index.js';
-import { ErrorController } from './core/error/index.js';
 import Middlewares from './core/middleware/middleware.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -82,8 +81,6 @@ routes.forEach((route) => {
 // attach router
 app.use('/api', router);
 
-// attach not found controller
-// app.use(ErrorController.notFound);
 
 // attach error converter
 app.use(Middlewares.errorMiddlewares);

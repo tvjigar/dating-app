@@ -1,7 +1,6 @@
 import PassportJwt from 'passport-jwt';
-import passport from 'passport';
 import config from '../../../config.js';
-import GoogleStrategy from 'passport-google-oauth20';
+
 /**
  * Passport JWT Strategy
  */

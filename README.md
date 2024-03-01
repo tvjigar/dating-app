@@ -17,7 +17,6 @@ this is default folder structure
 - multer
 - nodemailer
 - passport
-- passport
 - uuid
 - validator
 - winston
