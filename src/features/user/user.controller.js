@@ -84,6 +84,6 @@ export default class UserController {
   static deleteUser = AsyncUtils.asyncHandler(async (req, res) => {
     await UserService.deleteUserById(req.params.userId);
 
-    res.status(httpStatus.OK).send({ success:true});
+    res.status(httpStatus.OK).send({ success:true, message: 'User has been deleted!'});
   });
 }

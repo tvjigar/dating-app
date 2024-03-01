@@ -106,6 +106,11 @@ export default class AuthController {
     if (!userDoc) {
       throw Exceptions.USER_NOT_FOUND();
     }
+
+    if (userDoc.is_deleted) {
+      throw Exceptions.USER_HAS_DELETED();
+    }
+
     const authToken = await TokenService.generateAuthToken(userDoc);
     const refreshToken = await TokenService.generateRefreshToken(userDoc);
     res.send({
@@ -131,7 +136,7 @@ export default class AuthController {
         if (otpData) {
           const deleteOTP = await UserService.deleteOtpByNumber(req.body.phone_number);
           if (deleteOTP.deletedCount > 0) {
-            const addOtp = await UserService.createOtp({
+            await UserService.createOtp({
               phone_number: req.body.phone_number,
               otp: OTP,
               created_at: new Date(),

@@ -137,21 +137,12 @@ export default class UserService {
       throw Exceptions.USER_NOT_FOUND();
     }
 
-    await user.remove();
-
-    return user;
-  };
-
-  /**
-   * Changes the user "password" property to the given one.
-   *
-   * @param {ObjectId} userId
-   * @param {string} password
-   *
-   * @returns {Promise<UserModel>}
-   */
-  static modUserChangePassword = async (userId, password) => {
-    return UserService.updateUserById(userId, { password });
+    // await user.remove();
+    const updateUser = await UserModel.findOneAndUpdate(
+      { _id: userId },
+      { is_deleted: new Date()}
+    );
+    return updateUser;
   };
 
   /**

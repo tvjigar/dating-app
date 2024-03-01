@@ -81,35 +81,9 @@ export default class TokenService {
     };
 
     /**
-     * Generates a VERIFY_ACCOUNT token, and saves it to the database.
-     *
-     * @param {UserModel} user
-     * @returns {Promise<string>}
-     */
-    static generateVerifyAccountToken = async (user) => {
-        return TokenService.generateToken({
-            user, type: TokenEnums.TOKENS.VERIFY_ACCOUNT, saveToDatabase: true,
-        });
-    };
-
-    /**
-     * Generates a RESET_PASSWORD token, and saves it to the database.
-     *
-     * @param {UserModel} user
-     * @returns {Promise<string>}
-     */
-    static generateResetPasswordToken = async (user) => {
-        return TokenService.generateToken({
-            user, type: TokenEnums.TOKENS.RESET_PASSWORD, saveToDatabase: true,
-        });
-    };
-
-    /**
      * Verifies a given token and returns the token document from the database.
      *
      * Throws ApiError with status code of UNAUTHORIZED if token is invalid.
-     *
-     * Accepted token types are: REFRESH, VERIFY_ACCOUNT, RESET_PASSWORD.
      *
      * @param {string} token
      * @param {string} type
@@ -158,32 +132,6 @@ export default class TokenService {
     };
 
     /**
-     * Verifies a given VERIFY_ACCOUNT token and returns the token document from the database.
-     *
-     * Throws ApiError with status code of UNAUTHORIZED if token is invalid.
-     *
-     * @param {string} verifyAccountToken
-     * @returns {Promise<TokenModel>}
-     * @throws {ApiError} - UNAUTHORIZED
-     */
-    static verifyVerifyAccountToken = async (verifyAccountToken) => {
-        return TokenService.verifyToken(verifyAccountToken, TokenEnums.TOKENS.VERIFY_ACCOUNT);
-    };
-
-    /**
-     * Verifies a given RESET_PASSWORD token and returns the token document from the database.
-     *
-     * Throws ApiError with status code of UNAUTHORIZED if token is invalid.
-     *
-     * @param {string} resetPasswordToken
-     * @returns {Promise<TokenModel>}
-     * @throws {ApiError} - UNAUTHORIZED
-     */
-    static verifyResetPasswordToken = async (resetPasswordToken) => {
-        return TokenService.verifyToken(resetPasswordToken, TokenEnums.TOKENS.RESET_PASSWORD);
-    };
-
-    /**
      * Deletes all the REFRESH tokens from the database for the given user.
      *
      * @param {ObjectId} userId
@@ -203,13 +151,4 @@ export default class TokenService {
         return TokenModel.deleteMany({ user: userId, type: TokenEnums.TOKENS.VERIFY_ACCOUNT });
     };
 
-    /**
-     * Deletes all the RESET_PASSWORD tokens from the database for the given user.
-     *
-     * @param {ObjectId} userId
-     * @returns {Promise<void>}
-     */
-    static cleanupResetPasswordTokens = async (userId) => {
-        return TokenModel.deleteMany({ user: userId, type: TokenEnums.TOKENS.RESET_PASSWORD });
-    };
 }

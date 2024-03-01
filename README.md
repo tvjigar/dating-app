@@ -4,7 +4,6 @@ this is default folder structure
 
 # package for this project
 
-- compression
 - bcrypt
 - cors
 - dotenv
@@ -15,7 +14,6 @@ this is default folder structure
 - jsonwebtoken
 - moment
 - mongoose
-- morgan
 - multer
 - nodemailer
 - passport
@@ -23,4 +21,3 @@ this is default folder structure
 - uuid
 - validator
 - winston
-- xss

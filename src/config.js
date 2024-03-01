@@ -34,16 +34,6 @@ const config = {
             expiration: process.env.JWT_REFRESH_EXPIRATION,
             expirationUnit: process.env.JWT_REFRESH_EXPIRATION_UNIT || 'days',
         },
-        VERIFY_ACCOUNT: {
-            secret: process.env.JWT_VERIFY_ACCOUNT_SECRET,
-            expiration: process.env.JWT_VERIFY_ACCOUNT_EXPIRATION,
-            expirationUnit: process.env.JWT_VERIFY_ACCOUNT_EXPIRATION_UNIT || 'minutes',
-        },
-        RESET_PASSWORD: {
-            secret: process.env.JWT_RESET_PASSWORD_SECRET,
-            expiration: process.env.JWT_RESET_PASSWORD_EXPIRATION,
-            expirationUnit: process.env.JWT_RESET_PASSWORD_EXPIRATION_UNIT || 'minutes',
-        },
     },
     email: {
         from: process.env.EMAIL_FROM,

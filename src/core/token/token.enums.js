@@ -8,16 +8,12 @@ export default class TokenEnums {
      *
      * @type {{
      * AUTH: "AUTH",
-     * REFRESH: "REFRESH",
-     * VERIFY_ACCOUNT: "VERIFY_ACCOUNT",
-     * RESET_PASSWORD: "RESET_PASSWORD"
+     * REFRESH: "REFRESH"
      * }}
      */
     static TOKENS = {
         AUTH: 'AUTH',
-        REFRESH: 'REFRESH',
-        VERIFY_ACCOUNT: 'VERIFY_ACCOUNT',
-        RESET_PASSWORD: 'RESET_PASSWORD',
+        REFRESH: 'REFRESH'
     };
 
     /**
@@ -25,9 +21,7 @@ export default class TokenEnums {
      *
      * @type {[
      * "AUTH",
-     * "REFRESH",
-     * "VERIFY_ACCOUNT",
-     * "RESET_PASSWORD"
+     * "REFRESH"
      * ]}
      */
     static TOKENS_ARRAY = Object.values(

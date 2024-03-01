@@ -150,6 +150,11 @@ const userSchema = new mongoose.Schema(
             required: false,
             default: "",
         },
+        is_deleted: {
+            type: Date,
+            required: false,
+            default: null,
+        },
     },
     {
         timestamps: true,

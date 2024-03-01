@@ -55,6 +55,18 @@ export default class Exceptions {
     };
 
     /**
+     * Status Code: NOT_FOUND
+     *
+     * @returns {ApiError}
+     */
+    static USER_HAS_DELETED = () => {
+        return new ApiError({
+            statusCode: httpStatus.NOT_FOUND,
+            message: 'Sorry, your account has been deleted.',
+        });
+    };
+
+    /**
      * Status Code: UNAUTHORIZED
      *
      * @returns {ApiError}
@@ -72,8 +84,8 @@ export default class Exceptions {
      * @returns {ApiError}
      */
     static ACCOUNT_VERIFICATION_FAILED = () => {
-        res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
-            success : false,
+        return new ApiError({
+            statusCode: httpStatus.INTERNAL_SERVER_ERROR,
             message: 'Account verification failed',
         });
     };

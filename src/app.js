@@ -1,7 +1,5 @@
 import express from 'express';
 import helmet from 'helmet';
-import xss from 'xss-clean';
-import compression from 'compression';
 import cors from 'cors';
 import passport from 'passport';
 import { UserRouter } from './features/user/index.js';
@@ -42,11 +40,6 @@ app.use(
     }),
 );
 
-// sanitize request data
-app.use(xss());
-
-// gzip compression
-app.use(compression());
 
 // enable cors
 app.use(
